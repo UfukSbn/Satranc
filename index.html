@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satranç - Premium Chess Experience</title>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for beautiful icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background animations -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-grid"></div>
+
+    <div class="app-container">
+        
+        <!-- ================= MAIN MENU SCREEN ================= -->
+        <main id="screen-main-menu" class="screen active">
+            <header class="menu-header">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-chess-knight"></i>
+                </div>
+                <h1>Satranç</h1>
+                <p>Zekanı test et, stratejini geliştir.</p>
+            </header>
+            
+            <div class="menu-buttons">
+                <button id="btn-learn" class="menu-btn secondary-btn">
+                    <span class="btn-icon"><i class="fa-solid fa-book-open"></i></span>
+                    <span class="btn-text">
+                        <strong>Satrancı Öğren</strong>
+                        <span>Kurallar ve taktikler</span>
+                    </span>
+                </button>
+                
+                <button id="btn-play-ai" class="menu-btn primary-btn">
+                    <span class="btn-icon"><i class="fa-solid fa-robot"></i></span>
+                    <span class="btn-text">
+                        <strong>Bilgisayara Karşı</strong>
+                        <span>Yapay zeka ile kapış</span>
+                    </span>
+                </button>
+                
+                <button id="btn-play-local" class="menu-btn secondary-btn">
+                    <span class="btn-icon"><i class="fa-solid fa-users"></i></span>
+                    <span class="btn-text">
+                        <strong>2 Kişiyle Oyna</strong>
+                        <span>Aynı cihazda düello</span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Search Join Bar -->
+            <div class="menu-search-join">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-right-to-bracket search-icon"></i>
+                    <input type="text" id="txt-join-search" placeholder="Bağlantı linki veya Oda Kodu yapıştır...">
+                </div>
+                <button id="btn-join-search" class="action-btn primary-btn" title="Odaya Katıl">Katıl</button>
+            </div>
+            
+            <footer class="menu-footer">
+                <p>&copy; 2026 Satranç. Tüm Hakları Saklıdır.</p>
+            </footer>
+        </main>
+
+        <!-- ================= LEARN SCREEN ================= -->
+        <section id="screen-learn" class="screen">
+            <header class="screen-header">
+                <button class="back-btn btn-icon-only"><i class="fa-solid fa-chevron-left"></i></button>
+                <h2>Nasıl Oynanır?</h2>
+                <div class="placeholder-icon"></div>
+            </header>
+            
+            <div class="scroll-content learn-container">
+                <div class="learn-hero">
+                    <i class="fa-solid fa-chess"></i>
+                    <h3>Satrancın Temelleri ve Kuralları</h3>
+                    <p>Satranç, iki oyuncu arasında satranç tahtası üzerinde oynanan, 1500 yıllık geçmişe sahip dünyanın en popüler strateji oyunlarından biridir.</p>
+                </div>
+                
+                <div class="accordion">
+                    <!-- Section 1 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span><i class="fa-solid fa-circle-info"></i> Oyunun Amacı</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Satrançta temel amaç rakibin <strong>Şahını mat etmektir</strong>. Mat, rakip şahın doğrudan bir tehdit altında (şah çekilmiş) olması ve bu tehditten kurtulmak için kurallara uygun hiçbir hamlesinin kalmaması durumudur.</p>
+                            <p>Oyun boyunca her iki oyuncu da kendi şahını korurken, rakibin şahını sıkıştırmaya ve onun taşlarını kazanarak tahta hakimiyeti kurmaya çalışır.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span><i class="fa-solid fa-chess-board"></i> Taşlar ve Hareketleri</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="piece-guide-grid">
+                                <div class="piece-guide-card">
+                                    <div class="p-icon"><i class="fa-regular fa-chess-pawn"></i></div>
+                                    <h4>Piyon (P) - 1 Puan</h4>
+                                    <p>Sadece önündeki boş kareye doğru 1 kare ileri gidebilir. Başlangıç karelerindeyken 2 kare birden ilerleyebilir. Taşları çapraz olarak 1 kare ileri giderek alır.</p>
+                                </div>
+                                <div class="piece-guide-card">
+                                    <div class="p-icon"><i class="fa-regular fa-chess-knight"></i></div>
+                                    <h4>At (N) - 3 Puan</h4>
+                                    <p>Her yöne doğru "L" şeklinde hareket eder (2 kare düz, 1 kare yana). Diğer taşların üzerinden atlayabilen tek taştır. Sıra dışı hareketiyle stratejik önemi büyüktür.</p>
+                                </div>
+                                <div class="piece-guide-card">
+                                    <div class="p-icon"><i class="fa-regular fa-chess-bishop"></i></div>
+                                    <h4>Fil (B) - 3 Puan</h4>
+                                    <p>Sadece çapraz yönlerde, önü açık olduğu sürece istediği kadar kare ilerleyebilir. Biri beyaz karelerde, diğeri ise siyah karelerde hareket eden iki fil vardır.</p>
+                                </div>
+                                <div class="piece-guide-card">
+                                    <div class="p-icon"><i class="fa-regular fa-chess-rook"></i></div>
+                                    <h4>Kale (R) - 5 Puan</h4>
+                                    <p>Yatay ve dikey yönlerde, önü açık olduğu sürece istediği kadar kare ilerleyebilir. Güçlü ve oyun sonunda oldukça etkili bir taştır.</p>
+                                </div>
+                                <div class="piece-guide-card">
+                                    <div class="p-icon"><i class="fa-regular fa-chess-queen"></i></div>
+                                    <h4>Vezir (Q) - 9 Puan</h4>
+                                    <p>Tahtanın en güçlü taşıdır. Kale ve filin hareket kabiliyetlerini birleştirir. Önü açık olduğu sürece yatay, dikey ve çapraz olarak dilediği kadar gidebilir.</p>
+                                </div>
+                                <div class="piece-guide-card">
+                                    <div class="p-icon"><i class="fa-regular fa-chess-king"></i></div>
+                                    <h4>Şah (K) - Sonsuz</h4>
+                                    <p>Oyunun en önemli taşıdır. Her yöne (yatay, dikey, çapraz) sadece 1 kare hareket edebilir. Şahın kaybedilmesi oyunu kaybetmek anlamına gelir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span><i class="fa-solid fa-star"></i> Özel Hamleler</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="special-moves-list">
+                                <div>
+                                    <h5>1. Rok (Castling)</h5>
+                                    <p>Şahın güvenliğini sağlamak ve kaleyi oyuna sokmak için yapılan çift taş hamlesidir. Şah ve rok yapılacak kale daha önce hareket etmemiş olmalıdır. Şah ile kale arasındaki kareler boş olmalı ve şah tehdit altında olmamalıdır. Şah kaleye doğru 2 kare ilerler, kale de şahın üzerinden atlayarak yanındaki kareye yerleşir.</p>
+                                </div>
+                                <div>
+                                    <h5>2. Geçerken Alma (En Passant)</h5>
+                                    <p>Rakip piyon ilk hamlesinde 2 kare ilerleyerek sizin yanınıza gelirse, hemen bir sonraki hamlede sanki rakip piyon 1 kare ilerlemiş gibi onu çaprazdan alabilirsiniz. Bu hak sadece o ilk hamlenin hemen sonrasında kullanılabilir.</p>
+                                </div>
+                                <div>
+                                    <h5>3. Piyon Terfisi (Promotion)</h5>
+                                    <p>Bir piyon tahtanın en son sırasına (Beyaz için 8. yatay, Siyah için 1. yatay) ulaştığında oyuncunun seçimine göre <strong>Vezir, Kale, Fil veya At</strong> taşlarından birine dönüşür.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span><i class="fa-solid fa-handshake"></i> Beraberlik Durumları</span>
+                            <i class="fa-solid fa-chevron-down arrow"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Satrançta oyunlar her zaman galibiyetle bitmez. Aşağıdaki durumlarda beraberlik ilan edilir:</p>
+                            <ul>
+                                <li><strong>Pat (Stalemate):</strong> Sırası gelen oyuncunun şahı tehdit altında olmadığı halde kurallara uygun yapacak hiçbir hamlesinin bulunmaması durumu.</li>
+                                <li><strong>Yetersiz Güç:</strong> İki tarafta da mat yapmaya yetecek kadar taş kalmaması (örneğin sadece iki şah, veya Şah+Fil vs Şah, Şah+At vs Şah).</li>
+                                <li><strong>Üçlü Tekrar:</strong> Aynı tahta konumunun oyun boyunca 3 kez tekrarlanması.</li>
+                                <li><strong>50 Hamle Kuralı:</strong> Son 50 hamle boyunca hiçbir piyonun hareket etmemesi ve hiçbir taşın alınmaması durumunda oyuncular beraberlik isteyebilir.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screen-footer">
+                <button class="main-menu-btn action-btn secondary-btn">Ana Menüye Dön</button>
+            </div>
+        </section>
+
+        <!-- ================= VS COMPUTER SETTINGS ================= -->
+        <section id="screen-vs-computer-settings" class="screen">
+            <header class="screen-header">
+                <button class="back-btn btn-icon-only"><i class="fa-solid fa-chevron-left"></i></button>
+                <h2>Bilgisayar Ayarları</h2>
+                <div class="placeholder-icon"></div>
+            </header>
+            
+            <div class="scroll-content settings-container">
+                <div class="settings-group">
+                    <h3><i class="fa-solid fa-gauge-high"></i> Zorluk Seviyesi</h3>
+                    <div class="options-grid">
+                        <button class="option-btn active" data-difficulty="easy">
+                            <span class="opt-title">Kolay</span>
+                            <span class="opt-desc">Acemi oyuncular için</span>
+                        </button>
+                        <button class="option-btn" data-difficulty="medium">
+                            <span class="opt-title">Orta</span>
+                            <span class="opt-desc">Temel taktikleri bilir</span>
+                        </button>
+                        <button class="option-btn" data-difficulty="hard">
+                            <span class="opt-title">Zor</span>
+                            <span class="opt-desc">Ciddi bir meydan okuma</span>
+                        </button>
+                        <button class="option-btn" data-difficulty="impossible">
+                            <span class="opt-title">İmkansız</span>
+                            <span class="opt-desc">Kusursuz hamleler</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3><i class="fa-solid fa-palette"></i> Senin Rengin</h3>
+                    <div class="color-options">
+                        <button class="color-btn active" data-color="w">
+                            <div class="color-circle white"></div>
+                            <span>Beyaz</span>
+                        </button>
+                        <button class="color-btn" data-color="random">
+                            <div class="color-circle random">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </div>
+                            <span>Rastgele</span>
+                        </button>
+                        <button class="color-btn" data-color="b">
+                            <div class="color-circle black"></div>
+                            <span>Siyah</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screen-footer">
+                <button id="btn-start-ai" class="action-btn primary-btn large-btn">Oyuna Başla</button>
+            </div>
+        </section>
+
+        <!-- ================= TWO PLAYER SETTINGS ================= -->
+        <section id="screen-two-player-settings" class="screen">
+            <header class="screen-header">
+                <button class="back-btn btn-icon-only"><i class="fa-solid fa-chevron-left"></i></button>
+                <h2>2 Kişilik Ayarlar</h2>
+                <div class="placeholder-icon"></div>
+            </header>
+            
+            <div class="scroll-content settings-container">
+                <div class="settings-group">
+                    <h3><i class="fa-solid fa-network-wired"></i> Oynama Türü</h3>
+                    <div class="options-grid">
+                        <button class="option-btn active" id="btn-local-same" data-type="same">
+                            <span class="opt-title">Aynı Cihazda</span>
+                            <span class="opt-desc">Tek ekrandan sırayla oyna</span>
+                        </button>
+                        <button class="option-btn" id="btn-local-online" data-type="online">
+                            <span class="opt-title">Farklı Cihazda (Online)</span>
+                            <span class="opt-desc">Bağlantı linki ile oyna</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-info-card" id="card-local-rotation-info">
+                    <i class="fa-solid fa-rotate"></i>
+                    <h4>Dönen Tahta Sistemi</h4>
+                    <p>Her hamleden sonra sıra gelen oyuncunun tarafına tahta otomatik olarak 180 derece dönecektir. Cihazınızı masanın ortasına koyarak rahatça oynayabilirsiniz.</p>
+                </div>
+
+                <div class="settings-info-card hidden" id="card-online-static-info">
+                    <i class="fa-solid fa-desktop"></i>
+                    <h4>Sabit Ekran Modu</h4>
+                    <p>Çevrimiçi (Online) modda tahta dönmez. Hangi renkle oynuyorsanız o taraf her zaman ekranınızın altında sabit kalır.</p>
+                </div>
+                
+                <div class="settings-group">
+                    <h3><i class="fa-solid fa-palette"></i> 1. Oyuncu Rengi</h3>
+                    <div class="color-options">
+                        <button class="color-btn active" data-color-local="w">
+                            <div class="color-circle white"></div>
+                            <span>Beyaz</span>
+                        </button>
+                        <button class="color-btn" data-color-local="random">
+                            <div class="color-circle random">
+                                <i class="fa-solid fa-circle-question"></i>
+                            </div>
+                            <span>Rastgele</span>
+                        </button>
+                        <button class="color-btn" data-color-local="b">
+                            <div class="color-circle black"></div>
+                            <span>Siyah</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screen-footer">
+                <button id="btn-start-local" class="action-btn primary-btn large-btn">Oyuna Başla</button>
+            </div>
+        </section>
+
+        <!-- ================= MULTIPLAYER LOBBY SCREEN ================= -->
+        <section id="screen-multiplayer-lobby" class="screen">
+            <header class="screen-header">
+                <button id="btn-back-lobby" class="btn-icon-only"><i class="fa-solid fa-chevron-left"></i></button>
+                <h2>Çevrimiçi Oda</h2>
+                <div class="placeholder-icon"></div>
+            </header>
+            
+            <div class="scroll-content lobby-container">
+                <div class="lobby-card">
+                    <i class="fa-solid fa-share-nodes lobby-icon"></i>
+                    <h3 id="lbl-lobby-status">Oda Kuruluyor...</h3>
+                    <p>Rakibinizi davet etmek için aşağıdaki bağlantıyı kopyalayıp gönderin:</p>
+                    <div class="link-share-box">
+                        <input type="text" id="txt-share-link" readonly value="Bağlantı oluşturuluyor...">
+                        <button id="btn-copy-link" class="btn-icon-only" title="Linki Kopyala"><i class="fa-solid fa-copy"></i></button>
+                    </div>
+                    <div class="lobby-waiting">
+                        <div class="thinking-spinner active" style="position: static; display: flex; justify-content: center; margin: 20px 0;">
+                            <div class="spinner-dot"></div>
+                            <div class="spinner-dot"></div>
+                            <div class="spinner-dot"></div>
+                        </div>
+                        <p id="lbl-waiting-text">Rakip bekleniyor...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screen-footer">
+                <button id="btn-cancel-lobby" class="action-btn secondary-btn">İptal Et</button>
+            </div>
+        </section>
+
+        <!-- ================= JOINING LOBBY SCREEN ================= -->
+        <section id="screen-joining-lobby" class="screen">
+            <header class="screen-header">
+                <div class="placeholder-icon"></div>
+                <h2>Odaya Katıl</h2>
+                <div class="placeholder-icon"></div>
+            </header>
+            
+            <div class="scroll-content lobby-container">
+                <div class="lobby-card">
+                    <i class="fa-solid fa-plug lobby-icon animate-pulse"></i>
+                    <h3>Bağlantı Kuruluyor</h3>
+                    <p>Oda sahibine bağlanılıyor, lütfen bekleyin...</p>
+                    <div class="thinking-spinner active" style="position: static; display: flex; justify-content: center; margin: 20px 0;">
+                        <div class="spinner-dot"></div>
+                        <div class="spinner-dot"></div>
+                        <div class="spinner-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screen-footer">
+                <button id="btn-cancel-joining" class="action-btn secondary-btn">İptal Et</button>
+            </div>
+        </section>
+
+        <!-- ================= GAME PLAY SCREEN ================= -->
+        <section id="screen-game" class="screen">
+            <header class="game-header">
+                <button id="btn-abort" class="action-btn secondary-btn" style="flex: initial; padding: 10px 16px; font-size: 0.85rem; height: 44px; border-radius: 12px; margin-right: 8px;" title="Pes Et ve Menüye Dön"><i class="fa-solid fa-flag"></i> Pes Et</button>
+                
+                <div class="game-info">
+                    <div class="game-mode-badge" id="lbl-game-mode">Bilgisayara Karşı</div>
+                    <div class="turn-indicator-bar">
+                        <span id="lbl-turn">Sıra: Beyazda</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 8px;">
+                    <button id="btn-chat-toggle" class="btn-icon-only secondary-btn" title="Sohbeti Aç/Kapat" style="position: relative;">
+                        <i class="fa-solid fa-comments"></i>
+                        <span class="chat-badge hidden" id="chat-badge"></span>
+                    </button>
+                    <button id="btn-sound-toggle" class="btn-icon-only secondary-btn" title="Sesi Aç/Kapat"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+            </header>
+
+            <div class="game-layout">
+                <!-- Opponent info -->
+                <div class="player-panel opponent-panel">
+                    <div class="player-avatar">
+                        <i class="fa-solid fa-user-ninja" id="opp-avatar-icon"></i>
+                    </div>
+                    <div class="player-details">
+                        <div class="player-name" id="lbl-opp-name">Bilgisayar (Orta)</div>
+                        <div class="captured-pieces" id="opp-captured">
+                            <!-- Captured pieces go here -->
+                        </div>
+                    </div>
+                    <div class="thinking-spinner" id="ai-thinking-indicator">
+                        <div class="spinner-dot"></div>
+                        <div class="spinner-dot"></div>
+                        <div class="spinner-dot"></div>
+                    </div>
+                </div>
+
+                <!-- The Chess Board Container -->
+                <div class="board-wrapper">
+                    <div class="chess-board" id="board">
+                        <!-- 64 squares will be injected dynamically -->
+                    </div>
+                </div>
+
+                <!-- Player info -->
+                <div class="player-panel player-panel-user">
+                    <div class="player-avatar">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <div class="player-details">
+                        <div class="player-name" id="lbl-player-name">Oyuncu</div>
+                        <div class="captured-pieces" id="player-captured">
+                            <!-- Captured pieces go here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Drawer Overlay -->
+            <div class="chat-drawer" id="chat-drawer">
+                <div class="chat-header">
+                    <h3><i class="fa-solid fa-comments"></i> Sohbet</h3>
+                    <button id="btn-close-chat" class="btn-icon-only secondary-btn" title="Sohbeti Kapat"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Messages will be injected dynamically -->
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="txt-chat-message" placeholder="Mesajınızı yazın...">
+                    <button id="btn-send-message" class="btn-icon-only primary-btn" title="Gönder"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================= PROMOTION POPUP / MODAL ================= -->
+    <div class="modal-overlay" id="promotion-modal">
+        <div class="modal-card promotion-card">
+            <h3>Piyon Terfisi</h3>
+            <p>Piyonunuzun dönüşeceği taşı seçin:</p>
+            <div class="promotion-options">
+                <button class="promo-option" data-promo="q">
+                    <span class="piece-icon q-icon"></span>
+                    <span>Vezir</span>
+                </button>
+                <button class="promo-option" data-promo="r">
+                    <span class="piece-icon r-icon"></span>
+                    <span>Kale</span>
+                </button>
+                <button class="promo-option" data-promo="b">
+                    <span class="piece-icon b-icon"></span>
+                    <span>Fil</span>
+                </button>
+                <button class="promo-option" data-promo="n">
+                    <span class="piece-icon n-icon"></span>
+                    <span>At</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= GAME OVER POPUP / MODAL ================= -->
+    <div class="modal-overlay" id="game-over-modal">
+        <div class="modal-card game-over-card">
+            <div class="game-over-trophy">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h2 id="game-over-title">Oyun Bitti</h2>
+            <p id="game-over-detail">Mat ile Beyaz kazandı.</p>
+            
+            <div class="game-over-buttons">
+                <button id="btn-play-again" class="action-btn primary-btn">Bir Daha Oyna</button>
+                <button id="btn-go-home" class="action-btn secondary-btn">Ana Ekrana Dön</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External libraries -->
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="lib/chess.js"></script>
+    <!-- Core game files -->
+    <script src="ai.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
